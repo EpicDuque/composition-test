@@ -1,0 +1,23 @@
+{
+    "name": "CoolTools",
+    "rootNamespace": "CoolTools",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:21b0c8d1703a94250bfac916590cea4f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.visualscripting",
+            "expression": "1.0.0",
+            "define": "VISUAL_SCRIPTING"
+        }
+    ],
+    "noEngineReferences": false
+}

@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/Cool%20Tools/Editor/Windows/BehaviourTree/NodeViews/NodeViewStyle.uss?fileID=7433441132597879392&amp;guid=5a94dd48b3557154aabe6cf7307dbba8&amp;type=3#NodeViewStyle" />
+    <ui:VisualElement name="node-state" />
+    <ui:VisualElement name="node-border" style="max-width: 200px;">
+        <ui:VisualElement name="contents">
+            <ui:VisualElement name="top" style="margin-left: 0; padding-right: 0; padding-left: 0;">
+                <ui:VisualElement name="input" />
+                <ui:VisualElement name="divider" class="vertical" />
+                <ui:VisualElement name="title" style="padding-left: 8px; padding-right: 8px; align-items: center; padding-top: 2px;">
+                    <ui:Label name="title-label" text="DebugLogNode" class="unity-text-element unity-label" />
+                    <ui:VisualElement name="title-button-container">
+                        <ui:VisualElement name="collapse-button">
+                            <ui:VisualElement name="icon" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="space" style="height: 5px;" />
+                <ui:Label text="This is a description" display-tooltip-when-elided="true" name="description" style="margin-left: 4px; margin-bottom: 2px; white-space: normal;" />
+                <ui:VisualElement name="divider" class="horizontal" />
+                <ui:VisualElement name="output" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="selection-border" picking-mode="Ignore" />
+</ui:UXML>
