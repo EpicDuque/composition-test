@@ -136,9 +136,14 @@ namespace CoolTools.Actors
             RotateStep();
             JumpGravityStep();
             
+            CheckGrounded();
+        }
+
+        protected void CheckGrounded()
+        {
             IsGrounded = Physics.CheckSphere(transform.position, 0.35f, whatIsGround);
         }
-        
+
         protected virtual float GetCurrentSpeed()
         {
             return new Vector3(
@@ -241,6 +246,11 @@ namespace CoolTools.Actors
             var target = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
 
             GetRotationTransformY().rotation = Quaternion.Euler(0.0f, target, 0.0f);
+        }
+
+        public void LookTowardsMovement()
+        {
+            LookDirection = new Vector3(Movement.x, 0f, Movement.y);
         }
 
         /// <summary>

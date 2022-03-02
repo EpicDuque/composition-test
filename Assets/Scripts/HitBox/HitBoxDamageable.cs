@@ -1,10 +1,11 @@
-﻿public class HitBoxDamageable : HitBox<GenericDamageable>
+﻿public class HitBoxDamageable : HitBox<Damageable>
 {
-    protected override void ObjectEntered(GenericDamageable item)
+    protected override void ObjectEntered(Damageable item)
     {
         
     }
-    protected override void ObjectExit(GenericDamageable item)
+    
+    protected override void ObjectExit(Damageable item)
     {
         
     }

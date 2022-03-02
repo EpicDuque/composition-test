@@ -47,12 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _json: '{"declarations":{"collection":{"$content":[{"name":"Enemy","value":{"$content":0,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"EnemyActor,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Duration","value":{"$content":2.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"PatrolDuration","value":{"$content":2.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"DamageableScanner","value":{"$content":1,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"HitBoxDamageable,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Combat","value":{"$content":2,"$type":"UnityEngine.Object"},"typeHandle":{"Identification":"CharacterCombat,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"},{"name":"Target","value":null,"typeHandle":{"Identification":"Damageable,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 5336777061789943164}
     - {fileID: 1595734383370063419}
+    - {fileID: 1604443734258264613}
 --- !u!114 &520221631002472085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +162,7 @@ PrefabInstance:
     - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
       propertyPath: eventDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
@@ -170,12 +173,17 @@ PrefabInstance:
         type: 3}
       propertyPath: eventDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 520221631002472085}
+      objectReference: {fileID: 5336777061789943164}
     - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
       propertyPath: eventDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 520221631002472085}
+    - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
+        type: 3}
+      propertyPath: eventDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
       propertyPath: eventDeath.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -184,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
       propertyPath: eventDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_enabled
+      value: DestroyActor
       objectReference: {fileID: 0}
     - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
@@ -194,7 +202,7 @@ PrefabInstance:
     - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
       propertyPath: eventDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
+      value: CoolTools.Actors.Actor, CoolTools
       objectReference: {fileID: 0}
     - target: {fileID: 5161909924761809147, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
@@ -220,12 +228,12 @@ PrefabInstance:
     - target: {fileID: 8581693210538021105, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
       propertyPath: actions.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8581693210538021105, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
       propertyPath: actions.Array.data[1].Delay
-      value: 0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8581693210538021105, guid: 18f7c98389831a0469eb3648147ca0d4,
         type: 3}
@@ -322,7 +330,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Capsule
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7566831288189569217, guid: 18f7c98389831a0469eb3648147ca0d4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 18f7c98389831a0469eb3648147ca0d4, type: 3}
 --- !u!1 &5177973189287259420 stripped
 GameObject:
@@ -346,6 +355,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41d2877a38104eeda28432edaf9c3e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1604443734258264613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3428819088225087315, guid: 18f7c98389831a0469eb3648147ca0d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4166319866009912694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727999c620c89af40993893da790b206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1595734383370063419 stripped
@@ -376,7 +397,7 @@ MonoBehaviour:
   groundCheckRadius: 0.25
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65
   actorEventCallbacks:
     onActorCreated:
       m_PersistentCalls:
@@ -388,3 +409,16 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   animator: {fileID: 0}
+--- !u!114 &6089724040194355695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177973189287259420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e3beea6e0a459ca442e183caff7750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootAmount: 0

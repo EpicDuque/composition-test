@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Stats_Enemy
   m_EditorClassIdentifier: 
   maxHealth: 5
-  power: 1
+  power: 5
+  attackPeriod: 1

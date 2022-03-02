@@ -6,8 +6,9 @@ public class CombatStats : ScriptableObject
 {
     [SerializeField] private int maxHealth;
     [SerializeField] private int power;
-
+    [SerializeField] private float attackPeriod;
+    
     public int MAXHealth => maxHealth;
-
     public int Power => power;
+    public float AttackPeriod => attackPeriod;
 }

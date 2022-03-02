@@ -53,7 +53,7 @@ public abstract class HitBox<T> : MonoBehaviour where T : Component
         }
     }
 
-    protected bool IsValidTeam(TeamIdentity identity)
+    protected virtual bool IsValidTeam(TeamIdentity identity)
     {
         return filterType switch
         {
